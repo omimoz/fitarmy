@@ -2,53 +2,47 @@ import useDeviceSize from "../../hooks/useDeviceSize";
 import { css } from "@emotion/css";
 import { Col, Image, Row } from "antd";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const ServicesMobile = () => {
-  const { t,i18n } = useTranslation();
+  const { t } = useTranslation();
   const [width] = useDeviceSize();
-  const [cart, setCart] = useState([]);
   const responsivLargeTxt = width < 1150 ? "s" : "md";
-  useEffect(() => {
-    setCart([
-      {
-        img: "./beauty_salon_features_1_mini.jpg",
-        title1: t("services.sec1.p1"),
-        title2: t("services.sec1.p2"),
-        title3: t("services.sec1.p3"),
-        placeHolde: "./1-holderi.jpg",
-      },
-      {
-        img: "./beauty_salon_features_2_mini.jpg",
-        title1: t("services.sec2.p1"),
-        title2: t("services.sec2.p2"),
-        title3: t("services.sec2.p3"),
-        placeHolde: "./2-holderi.jpg",
-      },
-      {
-        img: "./beauty_salon_features_3_mini.jpg",
-        title1: t("services.sec3.p1"),
-        title2: t("services.sec3.p2"),
-        title3: t("services.sec3.p3"),
-        placeHolde: "./3-holderi.jpg",
-      },
-      {
-        img: "./beauty_salon_features_4_mini.jpg",
-        title1: t("services.sec4.p1"),
-        title2: t("services.sec4.p2"),
-        title3: t("services.sec4.p3"),
-        placeHolde: "./4-holderi.jpg",
-      },
-    ]);
-  }, [i18n]);
-
+  const cart = [
+    {
+      img: "./beauty_salon_features_1_mini.jpg",
+      title1: t("services.sec1.p1"),
+      title2: t("services.sec1.p2"),
+      title3: t("services.sec1.p3"),
+      placeHolde: "./1-holderi.jpg",
+    },
+    {
+      img: "./beauty_salon_features_2_mini.jpg",
+      title1: t("services.sec2.p1"),
+      title2: t("services.sec2.p2"),
+      title3: t("services.sec2.p3"),
+      placeHolde: "./2-holderi.jpg",
+    },
+    {
+      img: "./beauty_salon_features_3_mini.jpg",
+      title1: t("services.sec3.p1"),
+      title2: t("services.sec3.p2"),
+      title3: t("services.sec3.p3"),
+      placeHolde: "./3-holderi.jpg",
+    },
+    {
+      img: "./beauty_salon_features_4_mini.jpg",
+      title1: t("services.sec4.p1"),
+      title2: t("services.sec4.p2"),
+      title3: t("services.sec4.p3"),
+      placeHolde: "./4-holderi.jpg",
+    },
+  ];
   return (
     <Row className={style}>
-      {cart.map((item) => (
+      {cart?.map((item, index) => (
         <motion.div
-          key={item.title2}
+          key={index}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.5 }}
