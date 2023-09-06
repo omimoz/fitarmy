@@ -127,7 +127,7 @@ const style = (width, lang) => css`
   .Wrapper {
     display: flex;
     position: fixed;
-    flex-direction: ${width < 700 && lang === "ir" ? "row" : "row"};
+    flex-direction: ${width < 700 && lang === "ir" ? "row" : "row-reverse"};
     top: 0;
     left: 0;
     z-index: 10;
